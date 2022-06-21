@@ -1,5 +1,5 @@
 ; ------------------------------------------
-;   Spinogy X22 Macros v1.5.1 for EdingCNC
+;   SPINOGY X22 Macros v1.5.1 for EdingCNC
 ; ------------------------------------------
 ;
 ;   SPINOGY GmbH
@@ -68,42 +68,42 @@ Sub spinogy_config
                 #4339 = 25000
                 #4337 = 1
 
-                Msg "Konfigurierte Spindel: Spinogy X22 CG005 / 25.000 U/min"
+                Msg "Konfigurierte Spindel: SPINOGY X22 CG005 / 25.000 U/min"
             EndIf
 
             If [#4338 == 6]
                 #4339 = 30000
                 #4337 = 1
 
-                Msg "Konfigurierte Spindel: Spinogy X22 CG006 / 30.000 U/min"
+                Msg "Konfigurierte Spindel: SPINOGY X22 CG006 / 30.000 U/min"
             EndIf
 
             If [#4338 == 7]
                 #4339 = 35000
                 #4337 = 1
 
-                Msg "Konfigurierte Spindel: Spinogy X22 CG007 / 35.000 U/min"
+                Msg "Konfigurierte Spindel: SPINOGY X22 CG007 / 35.000 U/min"
             EndIf
 
             If [#4338 == 8]
                 #4339 = 40000
                 #4337 = 1
 
-                Msg "Konfigurierte Spindel: Spinogy X22 CG008 / 40.000 U/min"
+                Msg "Konfigurierte Spindel: SPINOGY X22 CG008 / 40.000 U/min"
             EndIf
 
             If [#4338 == 9]
                 #4339 = 45000
                 #4337 = 1
 
-                Msg "Konfigurierte Spindel: Spinogy X22 CG009 / 45.000 U/min"
+                Msg "Konfigurierte Spindel: SPINOGY X22 CG009 / 45.000 U/min"
             EndIf
 
             If [#4338 == 10]
                 #4339 = 50000
                 #4337 = 1
 
-                Msg "Konfigurierte Spindel: Spinogy X22 CG010 / 50.000 U/min"
+                Msg "Konfigurierte Spindel: SPINOGY X22 CG010 / 50.000 U/min"
             EndIf
 
             ; check if eding M90 setting is correctly configured too
