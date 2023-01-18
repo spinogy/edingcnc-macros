@@ -47,6 +47,7 @@
 
 ; configuration routine
 Sub spinogy_config
+    ; dialog message shows dialogPictures/Spinogy_Config.png
     DlgMsg "Spinogy_Config" "Spindle Model" 4338
 
     If [#5398 == 1]
@@ -57,6 +58,7 @@ Sub spinogy_config
             #4338 = 0
             #4339 = 0
 
+            ; dialog message shows dialogPictures/Spinogy_Error.png
             DlgMsg "Spinogy_Error"
 
             If [#5398 == 1]
@@ -107,7 +109,7 @@ Sub spinogy_config
                 Msg "Configured Spindle: SPINOGY X22 CG010 / 50.000 rpm"
             EndIf
 
-            ; check if eding M90 setting is correctly configured too
+            ; check if eding cnc M90 setting is correctly configured, based on the spindle setting
             If [#5394 < #4339]
                 WarnMsg "Your configured max spindle speed ("#5394") in M90 is lower than your configured spindle speed ("#4339"). Please check."
             EndIf
@@ -119,6 +121,7 @@ EndSub
 
 ; special routine for warmup spinogy x22 spindles
 Sub spinogy_warmup
+    ; dialog message shows dialogPictures/Spinogy_Warmup.png
     DlgMsg "Spinogy_Warmup"
 
     If [#5398 == 1]
@@ -174,6 +177,7 @@ Sub spinogy_greaserun
         ErrMsg "Please run Spinogy configuration first."
     EndIf
 
+    ; dialog message shows dialogPictures/Spinogy_Greaserun.png
     DlgMsg "Spinogy_Greaserun"
 
     If [#5398 == 1]
