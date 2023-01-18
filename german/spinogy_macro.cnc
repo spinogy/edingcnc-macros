@@ -1,5 +1,5 @@
 ; ------------------------------------------
-;   SPINOGY X22 Macros v1.5.1 for EdingCNC
+;   SPINOGY X22 Macros v1.5.2 for EdingCNC
 ; ------------------------------------------
 ;
 ;   SPINOGY GmbH
@@ -28,6 +28,7 @@
 ;   - 1.4.0: add graphical dialogs
 ;   - 1.5.0: check config against M90 setting
 ;   - 1.5.1: first release
+;   - 1.5.2: fixed some typos and message length
 ;
 ; ------------------------------------------
 ;
@@ -46,7 +47,7 @@
 
 ; configuration routine
 Sub spinogy_config
-    DlgMsg "Spinogy_Config" "Spindel Model" 4338
+    DlgMsg "Spinogy_Config" "Spindel-Modell" 4338
 
 	If [#5398 == 1]
         ; check if user input is out of range
@@ -108,7 +109,7 @@ Sub spinogy_config
 
             ; check if eding M90 setting is correctly configured too
             If [#5394 < #4339]
-                WarnMsg "Die konfigurierte max. Geschwindigkeit ("#5394") in EdingCNC (M90) ist gerinder, als die konfigurierte Spindel ("#4339"). Bitte Einstellungen prüfen."
+                WarnMsg "Die konfigurierte max. Geschwindigkeit ("#5394") in M90 ist geringer, als die konfigurierte Spindel ("#4339"). Bitte prüfen."
             EndIf
         EndIf
     Else
