@@ -49,7 +49,7 @@
 Sub spinogy_config
     DlgMsg "Spinogy_Config" "Spindel-Modell" 4338
 
-	If [#5398 == 1]
+    If [#5398 == 1]
         ; check if user input is out of range
         If [[#4338 < 5] or [#4338 > 10]]
             ; reset config
@@ -119,9 +119,9 @@ EndSub
 
 ; special routine for warmup spinogy x22 spindles
 Sub spinogy_warmup
-	DlgMsg "Spinogy_Warmup"
+    DlgMsg "Spinogy_Warmup"
 
-	If [#5398 == 1]
+    If [#5398 == 1]
         ; used routine variables
         #1337 = 0 ; loop speed counter
         #1339 = 0 ; loop ramp counter
@@ -131,7 +131,7 @@ Sub spinogy_warmup
 
         ; move z up
         Msg "Fahre Z auf sichere Position ..."
-		G53 G0 Z0
+        G53 G0 Z0
 
         ; loop 4 times to increment speed
         While [#1337 < 4]
@@ -165,7 +165,7 @@ Sub spinogy_warmup
         ; finished warmup and stop spindle
         M5
         Msg "Spinogy Spindel-Aufwärmlauf abgeschlossen!"
-	EndIf
+    EndIf
 EndSub
 
 ; special routine for spinogy x22 to evenly distribute grease
@@ -187,7 +187,7 @@ Sub spinogy_greaserun
 
         ; move z up
         Msg "Fahre Z auf sichere Position ..."
-		G53 G0 Z0
+        G53 G0 Z0
 
         ; ---------
         ; phase one
@@ -255,8 +255,8 @@ Sub spinogy_greaserun
 
         ; start spindle at 24.000 rpm and run for 30 minutes
         Msg "Halte 24.000 U/min für 30 Minuten ..."
-		M03 S24000
-		G04 P[60 * 30]
+        M03 S24000
+        G04 P[60 * 30]
 
         ; turn off spindle and wait 5 minutes
         Msg "Pause für 5 Minuten ..."
@@ -286,5 +286,5 @@ Sub spinogy_greaserun
         ; finished run and stop spindle
         M05
         Msg "Spinogy Fettverteilungslauf abgeschlossen!"
-	EndIf
+    EndIf
 EndSub
