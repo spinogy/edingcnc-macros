@@ -42,11 +42,18 @@
 ;   - #1339 - loop ramp counter
 ;   - #1340 - calculated rpm
 ;
+;   EDINGCNC OEM VARIABLES (persistent):
+;   - #5394 - M90 Max Spindle Speed
+;
+;   EDINGCNC OEM VARIABLES (non-persistent):
+;   - #5398 - dialogmessage return value (1=OK, -1=cancel)
+
+;
 ; ------------------------------------------
 
 ; configuration routine
 Sub spinogy_config
-    DlgMsg "Spinogy_Config" "Spindel Model" 4338
+    DlgMsg "Spinogy_Config" "Spindel-Modell CG0xx:" 4338
 
 	If [#5398 == 1]
         ; check if user input is out of range
@@ -56,7 +63,7 @@ Sub spinogy_config
             #4338 = 0
             #4339 = 0
 
-            DlgMsg "Spinogy_Error"
+            DlgMsg "Fehler: Modellnummer nicht gefunden."
 
             If [#5398 == 1]
                 GoSub spinogy_config
@@ -106,9 +113,9 @@ Sub spinogy_config
                 Msg "Konfigurierte Spindel: SPINOGY X22 CG010 / 50.000 U/min"
             EndIf
 
-            ; check if eding M90 setting is correctly configured too
+            ; check if eding M90 setting is correctly configured, too
             If [#5394 < #4339]
-                WarnMsg "Die konfigurierte max. Geschwindigkeit ("#5394") in EdingCNC (M90) ist gerinder, als die konfigurierte Spindel ("#4339"). Bitte Einstellungen prüfen."
+                WarnMsg "Die konfigurierte max. Geschwindigkeit ("#5394") in EdingCNC (M90) ist geringer, als die der konfigurierten Spindel ("#4339"). Bitte Einstellungen prüfen."
             EndIf
         EndIf
     Else
@@ -116,7 +123,7 @@ Sub spinogy_config
     EndIf
 EndSub
 
-; special routine for warmup spinogy x22 spindles
+; routine for warmup spinogy x22 spindles
 Sub spinogy_warmup
 	DlgMsg "Spinogy_Warmup"
 
